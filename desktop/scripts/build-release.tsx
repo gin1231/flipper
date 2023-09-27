@@ -200,10 +200,10 @@ async function buildDist(buildFolder: string) {
   const postBuildCallbacks: (() => void)[] = [];
 
   if (argv.mac || argv['mac-dmg']) {
-    targetsRaw.push(Platform.MAC.createTarget(['dir'], Arch.universal));
+    targetsRaw.push(Platform.MAC.createTarget(['dir']));
     // You can build mac apps on Linux but can't build dmgs, so we separate those.
     if (argv['mac-dmg']) {
-      targetsRaw.push(Platform.MAC.createTarget(['dmg'], Arch.universal));
+      targetsRaw.push(Platform.MAC.createTarget(['dmg']));
     }
     const macPath = path.join(
       distDir,
